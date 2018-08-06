@@ -1,4 +1,4 @@
-package holyquran.cls.com.holyquran;
+package holyquran.cls.com.holyquran.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import holyquran.cls.com.holyquran.Adapters.SurasAdapter;
 import holyquran.cls.com.holyquran.Base.MyBaseActivity;
+import holyquran.cls.com.holyquran.R;
 
 public class QuranActivity extends MyBaseActivity {
     public static String[] ArSuras = {"الفاتحه", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس", "هود"

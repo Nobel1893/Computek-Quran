@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="holyquran.cls.com.holyquran.View.QuranActivity"
-    tools:showIn="@layout/activity_quran"
+    tools:context="holyquran.cls.com.holyquran.View.QuranFragment"
     android:background="@drawable/soundback"
     android:weightSum="100">
 
@@ -19,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="el fat7a"
+            android:text="الاحاديث"
             android:textColor="@color/white"
             android:textSize="25sp"/>
     </LinearLayout>
@@ -27,5 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:id="@+id/SurasList"/>
+        android:id="@+id/ahadeathList"/>
 </LinearLayout>

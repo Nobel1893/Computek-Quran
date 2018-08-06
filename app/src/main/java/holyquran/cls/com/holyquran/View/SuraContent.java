@@ -1,4 +1,4 @@
-package holyquran.cls.com.holyquran;
+package holyquran.cls.com.holyquran.View;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import holyquran.cls.com.holyquran.Adapters.VersesAdapter;
 import holyquran.cls.com.holyquran.Base.MyBaseActivity;
+import holyquran.cls.com.holyquran.R;
 
 public class SuraContent extends MyBaseActivity implements View.OnClickListener {
 

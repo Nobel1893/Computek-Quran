@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash">
+        <activity android:name=".View.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,13 +17,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".QuranActivity"
+            android:name=".View.QuranActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SuraContent"
+            android:name=".View.SuraContent"
             android:label="@string/title_activity_sura_content"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.HomeActivity"
+            android:label="@string/title_activity_home"></activity>
     </application>
 
 </manifest>
