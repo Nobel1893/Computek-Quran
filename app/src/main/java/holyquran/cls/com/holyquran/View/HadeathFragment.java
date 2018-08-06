@@ -48,6 +48,16 @@ public class HadeathFragment extends Fragment {
 
         AhadeathList.setLayoutManager(layoutManager);
         AhadeathList.setAdapter(adapter);
+        adapter.setOnItemClickListener(new AhadeathAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String hadeathName, int position) {
+
+                HadeathDialogeFragment.hadeathItem = allAhadeath.get(position);
+                HadeathDialogeFragment hadeathDialogeFragment=new HadeathDialogeFragment();
+                hadeathDialogeFragment.show(getChildFragmentManager(),"hadeath");
+
+            }
+        });
         return mainView;
     }
 
