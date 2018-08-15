@@ -8,9 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
+import holyquran.cls.com.holyquran.Base.MyBaseActivity;
 import holyquran.cls.com.holyquran.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends MyBaseActivity {
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -26,6 +27,10 @@ public class HomeActivity extends AppCompatActivity {
                     break;
                 case R.id.navigation_hadeath:
                     fragment=new HadeathFragment();
+                    Log.e("hadeath","clicked");
+                    break;
+                case R.id.navigation_radio:
+                    fragment=new RadioFragment();
                     Log.e("hadeath","clicked");
                     break;
 

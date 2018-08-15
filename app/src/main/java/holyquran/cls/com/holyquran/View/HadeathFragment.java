@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import holyquran.cls.com.holyquran.Adapters.AhadeathAdapter;
+import holyquran.cls.com.holyquran.Base.MyBaseActivity;
+import holyquran.cls.com.holyquran.Base.MyBaseFragment;
 import holyquran.cls.com.holyquran.Model.HadeathItem;
 import holyquran.cls.com.holyquran.R;
 
@@ -22,7 +24,7 @@ import holyquran.cls.com.holyquran.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HadeathFragment extends Fragment {
+public class HadeathFragment extends MyBaseFragment {
 
 
     public HadeathFragment() {

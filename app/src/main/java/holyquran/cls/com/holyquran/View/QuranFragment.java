@@ -12,13 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import holyquran.cls.com.holyquran.Adapters.SurasAdapter;
+import holyquran.cls.com.holyquran.Base.MyBaseFragment;
 import holyquran.cls.com.holyquran.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class QuranFragment extends Fragment {
+public class QuranFragment extends MyBaseFragment {
 
     public static String[] ArSuras = {"الفاتحه", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس", "هود"
             , "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه", "الأنبياء", "الحج", "المؤمنون"
@@ -34,6 +35,8 @@ public class QuranFragment extends Fragment {
     protected RecyclerView SurasList;
     SurasAdapter adapter;
     LinearLayoutManager layoutManager;
+
+
 
 
     public QuranFragment() {
