@@ -1,6 +1,7 @@
 package holyquran.cls.com.holyquran.View;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import holyquran.cls.com.holyquran.API.APIManager;
@@ -62,9 +64,8 @@ public class RadioFragment extends MyBaseFragment {
             @Override
             public void onResponse(Call<RadiosResponse> call, Response<RadiosResponse> response) {
                 HideProgressBar();
-                channels=response.body().getRadios();
-                adapter=new RadioAdapter(channels);
-                radioList.setAdapter(adapter);
+              //  response.body().getRadios();
+                SetAdapter(response.body().getRadios());
 
             }
 
@@ -79,5 +80,51 @@ public class RadioFragment extends MyBaseFragment {
 
     private void initView(View rootView) {
         radioList = (RecyclerView) rootView.findViewById(R.id.radioList);
+    }
+
+    public void SetAdapter(ArrayList<Channel> allChannels){
+
+        channels=allChannels;
+        adapter=new RadioAdapter(channels);
+        radioList.setAdapter(adapter);
+        adapter.setOnPlayClickListener(new RadioAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Channel channel, int position) {
+                playRadio(channel.getURL());
+            }
+        });
+        adapter.setOnStopClickListener(new RadioAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Channel channel, int position) {
+                stopRadio();
+            }
+        });
+
+    }
+
+    MediaPlayer mediaPlayer;
+    public void stopRadio(){
+        if (mediaPlayer!=null && mediaPlayer.isPlaying())
+            mediaPlayer.stop();
+    }
+    public void playRadio(String url){
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(url);
+           // mediaPlayer.prepare();
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+            //mediaPlayer.start();
+        } catch (IOException e) {
+            ShowMessage("error","error play Radio Channel","ok");
+            e.printStackTrace();
+        }
+
+
     }
 }

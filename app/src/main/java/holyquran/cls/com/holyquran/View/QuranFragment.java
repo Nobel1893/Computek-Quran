@@ -66,6 +66,7 @@ public class QuranFragment extends MyBaseFragment {
                 SuraContent.suraNumber=position+1;//send parameter
                 Intent i=new Intent(getContext(),SuraContent.class);
                 i.putExtra("suraName",suraName);//send parameter
+                i.putExtra("title",suraName);
                 startActivity(i);
             }
         });

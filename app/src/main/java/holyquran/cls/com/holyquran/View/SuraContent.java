@@ -28,8 +28,9 @@ public class SuraContent extends MyBaseActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_sura_content);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ShowHomeAsUpEnabled();
+
+
         initView();
         String SuraName = getIntent().getStringExtra("suraName");//recieve parameter
         name.setText(SuraName);

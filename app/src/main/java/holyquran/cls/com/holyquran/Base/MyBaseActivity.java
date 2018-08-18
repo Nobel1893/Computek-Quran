@@ -3,9 +3,14 @@ package holyquran.cls.com.holyquran.Base;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+
+import holyquran.cls.com.holyquran.R;
 
 /**
  * Created by CLS on 8/1/2018.
@@ -54,5 +59,34 @@ public class MyBaseActivity extends AppCompatActivity {
     public void HideProgressBar(){
         if (dialog!=null)
         dialog.dismiss();
+    }
+
+    public void ShowHomeAsUpEnabled(){
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getIntent().getStringExtra("title")!=null){
+           TextView title= findViewById(R.id.title);
+           title.setText(getIntent().getStringExtra("title"));
+        }
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+    private final String SHAREDPREFRENCESNAME = "Holy_Quran";
+
+    public void saveData(String key,String value){
+        getSharedPreferences(SHAREDPREFRENCESNAME,MODE_PRIVATE).edit()
+                .putString(key,value)
+                .apply();
+
+    }
+    public String getSavedData(String key , String defValue){
+        return getSharedPreferences(SHAREDPREFRENCESNAME,MODE_PRIVATE).getString(key,defValue);
     }
 }
